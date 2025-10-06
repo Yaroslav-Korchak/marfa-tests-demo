@@ -1,10 +1,23 @@
 import pytest
 import allure
+import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
+
+
+@pytest.fixture(scope="session", autouse=True)
+def check_geo():
+    """Пропускаем все тесты, если страна = RU"""
+    try:
+        resp = requests.get("https://marfa-tech.com/geo.php", timeout=5)
+        country = resp.text.strip()
+        if country == "RU":
+            pytest.skip("❌ Тесты пропущены: страна определена как RU")
+    except Exception as e:
+        pytest.skip(f"❌ Не удалось получить geo.php: {e}")
 
 @pytest.fixture(scope="function")
 def driver():
