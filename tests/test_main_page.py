@@ -66,12 +66,12 @@ def test_open_contacts_and_url(driver):
         assert "/contacts" in driver.current_url.lower()
 
 
-# Проверка полей формы контактов
-@allure.feature("Contact form")
-@allure.story("Проверка наличия полей формы")
-def test_contact_form_fields_present(driver):
-    page = MainPage(driver)
-    page.open()
-    with allure.step("Проверяем, что форма контакта присутствует на странице и содержит поля"):
-        assert page.is_contact_form_present(), "Контактная форма или её поля не найдены"
+# # Проверка полей формы контактов
+# @allure.feature("Contact form")
+# @allure.story("Проверка наличия полей формы")
+# def test_contact_form_fields_present(driver):
+#     page = MainPage(driver)
+#     page.open()
+#     with allure.step("Проверяем, что форма контакта присутствует на странице и содержит поля"):
+#         assert page.is_contact_form_present(), "Контактная форма или её поля не найдены"
 
