@@ -32,9 +32,10 @@ jobs:
 
     - name: Install Allure
       run: |
-        wget https://github.com/allure-framework/allure2/releases/latest/download/allure-commandline.zip
-        unzip allure-commandline.zip
-        echo "$PWD/allure-*/bin" >> $GITHUB_PATH
+       ALLURE_VERSION=2.27.0
+       wget https://github.com/allure-framework/allure2/releases/download/${ALLURE_VERSION}/allure-${ALLURE_VERSION}.zip
+       unzip allure-${ALLURE_VERSION}.zip
+       echo "$PWD/allure-${ALLURE_VERSION}/bin" >> $GITHUB_PATH
 
     - name: Run tests
       run: |
