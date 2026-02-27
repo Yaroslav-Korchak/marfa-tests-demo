@@ -66,7 +66,7 @@ def test_open_contacts_and_url(driver):
         assert "/contacts" in driver.current_url.lower()
 
 
-Проверка полей формы контактов
+#Проверка полей формы контактов
 @allure.feature("Contact form")
 @allure.story("Проверка наличия полей формы")
 def test_contact_form_fields_present(driver):
